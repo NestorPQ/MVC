@@ -5,9 +5,9 @@ class Conexion{
 
   //  Atributos
   private $host = "localhost";    //  Servidor
-  private $port = "3606";         //  Puerto comunicación DB
+  private $port = "3306";         //  Puerto comunicación DB
   private $database = "senati";   //  Nombre DB
-  private $charset = "UTF-8";     //  Codificación (idioma)
+  private $charset = "UTF8";     //  Codificación (idioma)
   private $user = "root";         //  Usuario (raíz)
   private $password = "";         //  contraseña
   
@@ -38,6 +38,8 @@ class Conexion{
 
         //  Controlar los errores
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $this->pdo;
     }
     catch(Exception $error){
       die($error->getMessage());

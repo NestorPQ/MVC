@@ -1,6 +1,6 @@
 <?php
 
-require_once "./Conexion.php";
+require_once "Conexion.php";
 
 //  MODELO = contiene la lógica
 //  extends : HERENCIA (POO)  en PHP
@@ -10,10 +10,9 @@ class Curso extends Conexion{
   private $accesoBD;
 
   //  Constructor
-  public function __CONSTRUCT(){
-    public function __CONSTRUCT(){
-        $this->accesoBD = parent::getConexion();
-    }
+  public function __CONSTRUCT(){  
+    $this->accesoBD = parent::getConexion();
+  
   }
 
 
@@ -21,47 +20,30 @@ class Curso extends Conexion{
   public function listarCursos(){
     try {
       //  1. Preparamos la consulta
-      $this->accesoBD->prepare("CALL spu_cursos_listar()");
+      $consulta = $this->accesoBD->prepare("CALL spu_cursos_listar()");
       //  2. Ejecutamos la consulta
       $consulta->execute();
       //  3. Devolvemos el resulatado
       return $consulta->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (Exception $e) {
-      die($e->getMessage<())
+      die($e->getMessage());
     }
   }
 
   //  Método registrar curso
   public function registrarCurso(){
 
-    try {
-      $this->accesoBD->prepare("CALL spu_cursos_listar()")
-    } catch (Exception $e) {
-      die($e->getMessage<())
-    }
 
   }
 
   //  Método eliminar curso
   public function eliminarCurso(){
 
-    try {
-      $this->accesoBD->prepare("CALL spu_cursos_listar()")
-    } catch (Exception $e) {
-      die($e->getMessage<())
-    }
-
   }
 
   //  Método actualizar curso
   public function actualizarCurso(){
-
-    try {
-      $this->accesoBD->prepare("CALL spu_cursos_listar()")
-    } catch (Exception $e) {
-      die($e->getMessage<())
-    }
 
   }
 }
