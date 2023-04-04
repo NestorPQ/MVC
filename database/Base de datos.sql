@@ -30,6 +30,7 @@ SELECT * FROM cursos;
 --  motor de DB, y que permite recibir valores de entrada, realizar
 --  direntes tipos de cálculos y entregar una salida.
 
+
 DELIMITER $$
 CREATE PROCEDURE spu_cursos_listar()
 BEGIN
@@ -48,6 +49,7 @@ CALL spu_cursos_listar()
 
 
 --  Crear un procedimiento almacenado agregar curso
+--  Procedimiento registrar cursos
 
 DELIMITER $$
 CREATE PROCEDURE spu_cursos_registrar(
@@ -59,7 +61,7 @@ CREATE PROCEDURE spu_cursos_registrar(
 )
 BEGIN
 	INSERT INTO cursos (nombrecurso, especialidad, complejidad, fechainicio, precio) 
-	VALUES (_nombrecurso, _especialidad, _complejidad, _fechainicio, _precio)
+	VALUES (_nombrecurso, _especialidad, _complejidad, _fechainicio, _precio);
 
 END $$
 

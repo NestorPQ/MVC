@@ -3,6 +3,7 @@
 require_once '../models/Cursos.php';
 
 if (isset($_POST['operacion'])){
+
   $curso = new Curso();
 
   if ($_POST['operacion'] == 'listar'){
@@ -38,5 +39,19 @@ if (isset($_POST['operacion'])){
         $numeroFila++;
       }
     }
+  }
+
+  if($_POST['operacion'] == 'registrar'){
+    //  Paso 1: Recoger los datos que nos envía la vista 
+    $datosForm = [
+      "nombrecurso" =>  $_POST['nombrecurso'],
+      "especialidad" => $_POST['especialidad'],
+      "complejidad" =>  $_POST['complejidad'],
+      "fechainicio" =>  $_POST['fechainicio'],
+      "precio" =>       $_POST['precio']
+    ];
+
+    //Paso 2: Enviar el arreglo como parámetro del método registrar
+    $curso->registrarCurso($datosForm);
   }
 }
