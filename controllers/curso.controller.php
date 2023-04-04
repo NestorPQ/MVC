@@ -28,9 +28,9 @@ if (isset($_POST['operacion'])){
           <td>{$curso['fechainicio']}</td>
           <td>{$curso['precio']}</td>
           <td>
-            <a href='#' class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></a>
+            <a href='#' data-idcurso='{$curso['idcurso']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash'></i></a>
 
-            <a href='#' class='btn btn-success btn-sm'><i class='bi bi-pencil'></i></a>
+            <a href='#' data-idcurso='{$curso['idcurso']}' class='btn btn-success btn-sm editar'><i class='bi bi-pencil'></i></a>
           </td>
 
           
@@ -53,5 +53,9 @@ if (isset($_POST['operacion'])){
 
     //Paso 2: Enviar el arreglo como parámetro del método registrar
     $curso->registrarCurso($datosForm);
+  }
+
+  if ($_POST['operacion'] == 'eliminar') {
+    $curso ->eliminarCurso($_POST['idcurso']);
   }
 }
