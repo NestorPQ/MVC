@@ -58,7 +58,7 @@ CREATE PROCEDURE spu_cursos_registrar(
 	IN _precio			DECIMAL(7,2)
 )
 BEGIN
-	INSERT INTO cursos (nobrecurso, especialidad, complejidad, fechainicio, precio) 
+	INSERT INTO cursos (nombrecurso, especialidad, complejidad, fechainicio, precio) 
 	VALUES (_nombrecurso, _especialidad, _complejidad, _fechainicio, _precio)
 
 END $$
